@@ -36,8 +36,8 @@ public class leaderboard : MonoBehaviour {
 
 		// Use this for initialization
 		PNConfiguration pnConfiguration = new PNConfiguration ();
-		pnConfiguration.PublishKey = "pub-c-700d6386-17c7-4439-8d18-3472814914de";
-		pnConfiguration.SubscribeKey = "sub-c-523850fa-5865-11e8-9796-063929a21258";
+		pnConfiguration.PublishKey = "pub-c-526dec11-d551-4176-bb66-d9a9eaada77f";
+		pnConfiguration.SubscribeKey = "sub-c-c4d47aa6-75f6-11eb-b93b-c65114eeec61";
 
 		pnConfiguration.LogVerbosity = PNLogVerbosity.BODY;
 		pnConfiguration.UUID = Random.Range (0f, 999999f).ToString ();
