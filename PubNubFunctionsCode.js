@@ -5,10 +5,10 @@ export default (request) => {
     console.log(json);
     let { username, score } = json;
     //let { username, score } = request.message;
-    var scorearray1 = [];
-    var scorearray2 = [];
-    var usernamearray1 = [];
-    var usernamearray2 = [];
+    var scorearrayprevious = [];
+    var scorearraynew = [];
+    var usernamearraynew = [];
+    var usernamearrayprevious = [];
 
    // db.removeItem("data"); //reset the block
     db.get("data").then((value) => {
@@ -19,23 +19,23 @@ export default (request) => {
                 console.log("hello", item, score);
                 if(parseInt(item) < parseInt(score)){ //Parse into int since variables are currently strings
                     //Score
-                    scorearray2 = value.score.slice(0, i);
-                    scorearray1 = value.score.slice(i, value.score.length);
-                    console.log("values", scorearray2, scorearray1);
-                    scorearray2.push(score);
-                    var newList = scorearray2.concat(scorearray1);
-                    newList.splice(-1,1);
+                    scorearraynew = value.score.slice(0, i);
+                    scorearrayprevious = value.score.slice(i, value.score.length);
+                    console.log("values", scorearraynew, scorearrayprevious);
+                    scorearraynew.push(score);
+                    var newScoreList = scorearraynew.concat(scorearrayprevious);
+                    newScoreList.splice(-1,1);
                     
                     //Username
-                    usernamearray2 = value.username.slice(0, i);
-                    usernamearray1 = value.username.slice(i, value.score.length);
-                    console.log("values", usernamearray2, usernamearray1);
-                    usernamearray2.push(username);
-                    var newList2 = usernamearray2.concat(usernamearray1);
-                    newList2.splice(-1,1);
+                    usernamearrayprevious = value.username.slice(0, i);
+                    usernamearraynew = value.username.slice(i, value.score.length);
+                    console.log("values", usernamearrayprevious, usernamearraynew);
+                    usernamearrayprevious.push(username);
+                    var newUsername = usernamearrayprevious.concat(usernamearraynew);
+                    newUsername.splice(-1,1);
                     
-                    value.score = newList;
-                    value.username = newList2;
+                    value.score = newScoreList;
+                    value.username = newUsername;
 
                     db.set("data", value);
                     
@@ -44,7 +44,7 @@ export default (request) => {
                 i++;
             });
             pubnub.publish({
-                "channel": "my_channel2",
+                "channel": "leaderboard_scores",
                 "message": value
             }).then((publishResponse) => {
                 console.log("publish response", publishResponse);
