@@ -391,7 +391,7 @@ GameObject:
   - component: {fileID: 153891853}
   - component: {fileID: 153891852}
   m_Layer: 0
-  m_Name: linedpaper
+  m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1040,7 +1040,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dffa73fda81124505b9c0a60c6390dfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Name: 
   Line1: {fileID: 2015259365}
   Line2: {fileID: 1831358212}
   Line3: {fileID: 2043584176}
@@ -1371,7 +1370,7 @@ MonoBehaviour:
   m_LineType: 0
   m_HideMobileInput: 0
   m_CharacterValidation: 1
-  m_CharacterLimit: 5
+  m_CharacterLimit: 6
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls: []
