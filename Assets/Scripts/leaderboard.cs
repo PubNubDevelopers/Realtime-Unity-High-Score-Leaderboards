@@ -44,22 +44,6 @@ public class leaderboard : MonoBehaviour {
 
 		pubnub = new PubNub(pnConfiguration);
 		Debug.Log (pnConfiguration.UUID);
-			
-
-		MyClass myFireObject = new MyClass();
-		myFireObject.test = "new user";
-		string fireobject = JsonUtility.ToJson(myFireObject);
-		pubnub.Fire()
-			.Channel("my_channel")
-			.Message(fireobject)
-			.Async((result, status) => {
-				if(status.Error){
-					Debug.Log (status.Error);
-					Debug.Log (status.ErrorData.Info);
-				} else {
-					Debug.Log (string.Format("Fire Timetoken: {0}", result.Timetoken));
-				}
-			});
 		
     	pubnub.SubscribeCallback += (sender, e) => {
 		SubscribeEventEventArgs mea = e as SubscribeEventEventArgs;
