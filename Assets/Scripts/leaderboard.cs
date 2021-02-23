@@ -9,7 +9,7 @@ public class MyClass
 {
 	public string username;
 	public string score;
-	public string test;
+	public string refresh;
 }
 
 public class leaderboard : MonoBehaviour {
@@ -45,6 +45,21 @@ public class leaderboard : MonoBehaviour {
 		pubnub = new PubNub(pnConfiguration);
 		Debug.Log (pnConfiguration.UUID);
 		
+		MyClass fireRefreshObject = new MyClass();
+		fireRefreshObject.refresh = "new user refresh"; 
+		string firerefreshobject = JsonUtility.ToJson(fireRefreshObject);
+		pubnub.Fire() // This will trigger the leaderboard to refresh so it will display for a new user. 
+			.Channel("submit_score")
+			.Message(firerefreshobject)
+			.Async((result, status) => {
+				if(status.Error){
+					Debug.Log (status.Error);
+					Debug.Log (status.ErrorData.Info);
+				} else {
+					Debug.Log (string.Format("Fire Timetoken: {0}", result.Timetoken));
+				}
+			});
+
     	pubnub.SubscribeCallback += (sender, e) => {
 		SubscribeEventEventArgs mea = e as SubscribeEventEventArgs;
 			if (mea.Status != null) {
@@ -79,7 +94,7 @@ public class leaderboard : MonoBehaviour {
 		};
 		pubnub.Subscribe ()
 			.Channels (new List<string> () {
-				"my_channel2"
+				"leaderboard_scores"
 			})
 			.WithPresence()
 			.Execute();
@@ -95,7 +110,7 @@ public class leaderboard : MonoBehaviour {
 		string json = JsonUtility.ToJson(myObject);
 
 		pubnub.Publish()
-			.Channel("my_channel")
+			.Channel("submit_score")
 			.Message(json)
 			.Async((result, status) => {    
 				if (!status.Error) {
