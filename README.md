@@ -28,5 +28,3 @@ If you get the following error, follow the steps below:
 Scene ‘LeaderBoard’ couldn’t be loaded because it has not been added to the build settings or the AssetBundle has not been loaded.
 
 To fix this, go to File > Build Settings. Click the ‘Add Open Scene’s button. Then go back to your Project tab, and double-click on the ‘LeaderBoard’ scene, go back to your Build Settings, and click ‘Add Open Scenes’ once again. Then in your Project Tab, double-click on the LeaderBoard scene again and run the project.
-
-<a href=""><img src="" alt="Realtime Leaderboards in Unity" width="1024" height="623" /></a>
