@@ -1,6 +1,8 @@
-<h1>Full tutorial coming soon (:</h1>
+<h1>Real-time Unity Score Leaderboard</h1>
 
-[Demo the Project here](https://pubnubdevelopers.github.io/Realtime-Unity-High-Score-Leaderboards/)
+[Read the Full Real-time Leaderboard Tutorial](https://www.pubnub.com/blog/realtime-highscores-leaderboards-in-unity/)
+
+[Demo the Live LeaderBoard Project](https://pubnubdevelopers.github.io/Realtime-Unity-High-Score-Leaderboards/)
 
 <h2>Getting Started</h2>
 
