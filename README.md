@@ -4,6 +4,8 @@
 
 [Demo the Live LeaderBoard Project](https://pubnubdevelopers.github.io/Realtime-Unity-High-Score-Leaderboards/)
 
+<a href="https://www.pubnub.com/blog/realtime-highscores-leaderboards-in-unity/"><img src="https://images.ctfassets.net/3prze68gbwl1/n1ccZJWJdVxRCOr8fCACl/f0a819ebbdac9f8154a9c2c7e4c5e2e4/Screen_Shot_2021-02-26_at_3.10.20_PM.png" alt="Realtime Leaderboards in Unity" width="800" /></a>
+
 <h2>Getting Started</h2>
 
 Download or clone the Realtime Unity High Score Leaderboards repo. Open Unity Hub, go to the projects tap, and click ‘Add’. 
